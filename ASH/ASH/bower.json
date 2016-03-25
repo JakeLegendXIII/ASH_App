@@ -1,8 +1,9 @@
 {
-    "name": "ASH",
+  "name": "ASH",
   "dependencies": {
-    "jQuery": "~2.2.1",
     "angular": "~1.5.1",
-    "font-awesome": "~4.5.0"
+    "font-awesome": "~4.5.0",
+    "jquery": "~2.2.2",
+    "bootstrap": "~3.3.5"
   }
 }
