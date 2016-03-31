@@ -15,6 +15,9 @@
         },
         "cordova-plugin-calendar": {
             "PACKAGE_NAME": "io.cordova.myapp5c5a51"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "io.cordova.myapp5c5a51"
         }
     },
     "dependent_plugins": {}

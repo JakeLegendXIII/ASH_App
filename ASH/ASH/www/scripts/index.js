@@ -16,8 +16,8 @@
         // document.addEventListener( '', )
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
         var element = document.getElementById("deviceready");
-        element.innerHTML = 'Device Ready';
-        element.className += ' ready';
+        //element.innerHTML = 'Device Ready';
+        //element.className += ' ready';
     };
 
     function onPause() {
@@ -27,4 +27,5 @@
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
     };
+
 } )();

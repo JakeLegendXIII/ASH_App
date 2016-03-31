@@ -15,7 +15,6 @@
     </head>
     <body>
         <div class="app">
-
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12" style="background-color:#4C5B7F;">
@@ -47,19 +46,34 @@
                         </div><!-- /.container-fluid -->
                     </nav>
                 </div>
-                <p id="deviceready" class="event">Connecting to Device</p>
-            </div>
+                <div ng-app="app">
+                    <div ng-controller="indexController as vm">
+                        <!--<div ng-repeat="">-->
+                            <h3>Date:  {{ vm.date }}</h3><br />
+                            {{ vm.name }}<br />
+                            {{ vm.address }}, {{vm.city}} {{vm.state}} {{vm.zipCode}}
+                        <!--</div>-->
+                    </div>
+                </div>
+                <!--<p id="deviceready" class="event">Connecting to Device</p>-->
+                <div class="navbar navbar-fixed-bottom" style="background-color:#4C5B7F;">
+                    <span style="color:white;">&copy; Andrew's Spirit of Hope</span>
+                </div>
+            </div>       
         </div>
         <!-- Cordova file-->
         <script type="text/javascript" src="cordova.js"></script>
         <!-- Depedencies -->
         <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="lib/angular/angular.min.js"></script>
         <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="lib/bootstrap/js/transition.js"></script>
         <script type="text/javascript" src="lib/bootstrap/js/collapse.js"></script>    
         <!-- Project files -->
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
         <script type="text/javascript" src="scripts/index.js"></script>
+        <script type="text/javascript" src="scripts/app.js"></script>
+        <script type="text/javascript" src="scripts/controllers/indexController.js"></script>
     </body>
 
 </html>
