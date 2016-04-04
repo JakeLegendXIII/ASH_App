@@ -1,21 +1,15 @@
-﻿// For an introduction to the Blank template, see the following documentation:
-// http://go.microsoft.com/fwlink/?LinkID=397704
-// To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints, 
-// and then run "window.location.reload()" in the JavaScript Console.
-(function () {
+﻿(function () {
     "use strict";
 
-    document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
+    document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+    document.addEventListener('backbutton', onDeviceBackButton, false);
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener( 'resume', onResume.bind( this ), false );
         
-        // Handle SPA events
-        // document.addEventListener( '', )
-        // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
-        var element = document.getElementById("deviceready");
+        //var element = document.getElementById("deviceready");
         //element.innerHTML = 'Device Ready';
         //element.className += ' ready';
     };
@@ -27,5 +21,23 @@
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
     };
+
+    function onDeviceBackButton(args) {
+        
+        //if (window.location === "#/") {
+            navigator.notification.confirm('Do you want to exit the application?',
+            onConfirm, 'Exit', 'Yes, No');
+        //} else {
+            //console.log($location.path());
+            //window.location = "#/";
+            //console.log($location.path());
+        //}
+    }
+
+    function onConfirm(buttonIndex) {
+        if (buttonIndex === 1) {
+            navigator.app.exitApp();
+        }
+    }
 
 } )();
