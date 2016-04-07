@@ -3,36 +3,37 @@
 
     angular.module("app").controller("indexController", indexController);
 
-    // indexController.$inject = ['$location', '$rootScope', '$timeout', 'deviceService', 'modalService']; $location, $rootScope, $timeout, deviceService, modalService
-
     function indexController() {
         var vm = this;
-        vm.date = "11/14/2015";
-        vm.name = "6th Annual Blue Jean Ball"
+        vm.date = "11/14/2016";
+        vm.name = "7th Annual Blue Jean Ball"
         vm.location = "St. Noel's Banquet Center";
         vm.address = "35200 Chardon Rd";
         vm.city = "Willoughby Hills";
         vm.state = "OH";
         vm.zipCode = "44094";
 
-        //activate();
-        //function activate() {
-        //    deviceService.defaultBackButtonHandler = onDeviceBackButton;
-        //}
+        document.addEventListener('backbutton', onDeviceBackButtonIndex, false);
+        document.getElementById('getdirections').addEventListener('click', getDirections);
+        document.getElementById('downloadreminder').addEventListener('click', downloadReminder);
+    }
 
-        //function onDeviceBackButton(args) {
-        //    $timeout(function () {
-        //        modalService.showModal(function (option) {
-        //            if (option == modalService.YES) {
-        //                deviceService.exitApplication();
-        //            }
-        //        },
-        //        {
-        //            buttons: modalService.YES | modalService.NO,
-        //            message: 'Do you want to quit the application?',
-        //            title: 'Close Application'
-        //        });
-        //    }, 1);
-        //}
+    function onDeviceBackButtonIndex(args) {
+        navigator.notification.confirm('Do you want to exit the application?',
+        onConfirm, 'Exit', 'Yes, No');
+    }
+
+    function onConfirm(buttonIndex) {
+        if (buttonIndex === 1) {
+            navigator.app.exitApp();
+        }
+    }
+
+    function getDirections() {
+        navigator.notification.alert('Get Directions!');
+    }
+
+    function downloadReminder() {
+        navigator.notification.alert('Download Reminder!');
     }
 })();

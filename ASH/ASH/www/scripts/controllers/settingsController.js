@@ -5,6 +5,7 @@
 
     function settingsController() {
         var vm = this;
+        document.addEventListener('backbutton', onDeviceBackButton, false);
     }
 
 })();
