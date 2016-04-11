@@ -1,6 +1,6 @@
 ﻿(function () {
     "use strict";
-
+    var place = "";
     angular.module("app").controller("indexController", indexController);
 
     function indexController() {
@@ -13,6 +13,7 @@
         vm.state = "OH";
         vm.zipCode = "44094";
 
+        place = vm.location + vm.city + ", " + vm.state;
         document.addEventListener('backbutton', onDeviceBackButtonIndex, false);
         document.getElementById('getdirections').addEventListener('click', getDirections);
         document.getElementById('downloadreminder').addEventListener('click', downloadReminder);
@@ -30,7 +31,18 @@
     }
 
     function getDirections() {
-        navigator.notification.alert('Get Directions!');
+        launchnavigator.isAppAvailable(launchnavigator.APP.GOOGLE_MAPS, function (isAvailable) {
+            var app;
+            if (isAvailable) {
+                app = launchnavigator.APP.GOOGLE_MAPS;
+            } else {
+                console.warn("Google Maps not available - falling back to user selection");
+                app = launchnavigator.APP.USER_SELECT;
+            }
+            launchnavigator.navigate(place, {
+                app: app
+            });
+        });    
     }
 
     function downloadReminder() {

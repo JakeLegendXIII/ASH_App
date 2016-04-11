@@ -39,5 +39,22 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dpa99c/phonegap-launch-navigator.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-actionsheet": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-actionsheet"
+        },
+        "is_top_level": false,
+        "variables": {}
     }
 }
