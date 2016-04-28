@@ -1,11 +1,13 @@
-﻿<div> <!--ng-controller="indexController as vm"-->
+﻿<div>
+    <!--ng-controller="indexController as vm"-->
     <i class="fa fa-home"></i> Home
     <h3>Upcoming Events:</h3>
     <div class="jumbotron">
         <!--<div ng-repeat="x in vm">-->
-        <a href="http://andrewsspiritofhope.org/"  target="_blank" onclick="window.open('http://andrewsspiritofhope.org/',
+        <a href="http://andrewsspiritofhope.org/" target="_blank" onclick="window.open('http://andrewsspiritofhope.org/',
                                             '_blank', 'location=yes'); return false;">
-        <button class="btn btn-warning btn-lg">Register</button></a>
+            <button class="btn btn-warning btn-lg">Register</button>
+        </a>
         <h4>Date:  {{ vm.date }}</h4>
         <h4> {{ vm.name }}</h4><br />
         {{ vm.location }}<br />

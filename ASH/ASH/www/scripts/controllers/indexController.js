@@ -2,13 +2,17 @@
     "use strict";
 
     var place = ""
+    var startDate;
+    var endDate;
+    var title;
+    var location;
     angular.module("app").controller("indexController", indexController);
 
     function indexController() {
         var vm = this;
-        vm.date = "4/13/2016";
-        vm.time = "6:00 PM";
-        vm.endTime = "8:00 PM";
+        vm.date = "5/2/2016";
+        vm.time = "18:00:00";
+        vm.endTime = "20:00:00";
         vm.name = "7th Annual Blue Jean Ball"
         vm.location = "St. Noel's Banquet Center";
         vm.address = "35200 Chardon Rd";
@@ -17,6 +21,19 @@
         vm.zipCode = "44094";
 
         place = vm.location + vm.city + ", " + vm.state;
+        title = vm.name;
+        location = vm.location;
+        //eventService.getEvents
+        //.then(function (event) {
+        //    vm.event = event;
+        //    place = vm.event.location + vm.event.city + ", " + vm.event.state;
+        //}, function (event) {
+        //    navigator.notification.alert("Failed");
+        //});
+        var sd = vm.date + " " + vm.time;
+        var ed = vm.date + " " + vm.endTime;
+        startDate = new Date(sd);
+        endDate = new Date(ed);
 
         document.addEventListener('backbutton', onDeviceBackButtonIndex, false);
         document.getElementById('getdirections').addEventListener('click', getDirections);
@@ -47,11 +64,17 @@
             launchnavigator.navigate(place, {
                 app: app
             });
-        });    
+        });
     }
 
     function downloadReminder() {
-        navigator.notification.alert('Download Reminder!');
-        //window.plugins.calendar.createEvent(title, location, "", startDate, endDate);
+        try {
+            window.plugins.calendar.createEvent(title, location, "", startDate, endDate);         
+            //Tell user
+            navigator.notification.alert('Reminder is downloaded!');
+        }
+        catch (err) {
+            navigator.notification.alert('An Error occurred. Unable to download reminder for this device.');
+        }
     }
 })();
