@@ -9,9 +9,6 @@
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener('resume', onResume.bind(this), false);
 
-        //var element = document.getElementById("deviceready");
-        //element.innerHTML = 'Device Ready';
-        //element.className += ' ready';
     };
 
     function onPause() {
