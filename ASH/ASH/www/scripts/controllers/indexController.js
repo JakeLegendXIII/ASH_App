@@ -10,18 +10,18 @@
 
     function indexController() {
         var vm = this;
-        vm.date = "5/2/2016";
+        vm.date = "5/7/2016";
         vm.time = "18:00:00";
         vm.endTime = "20:00:00";
         vm.name = "7th Annual Blue Jean Ball"
-        vm.location = "St. Noel's Banquet Center";
+        vm.location = "St. Noel's Banquet Facilities";
         vm.address = "35200 Chardon Rd";
         vm.city = "Willoughby Hills";
         vm.state = "OH";
         vm.zipCode = "44094";
 
-        place = vm.location + vm.city + ", " + vm.state;
-        title = vm.name;
+        place = vm.address + " " + vm.city + ", " + vm.state;
+        title = "ASH " + vm.name;
         location = vm.location;
         //eventService.getEvents
         //.then(function (event) {
@@ -37,7 +37,7 @@
 
         document.addEventListener('backbutton', onDeviceBackButtonIndex, false);
         document.getElementById('getdirections').addEventListener('click', getDirections);
-        document.getElementById('downloadreminder').addEventListener('click', downloadReminder);
+        document.getElementById('downloadreminder').addEventListener('click', downloadReminderPrompt);
     }
 
     function onDeviceBackButtonIndex(args) {
@@ -67,14 +67,22 @@
         });
     }
 
-    function downloadReminder() {
-        try {
-            window.plugins.calendar.createEvent(title, location, "", startDate, endDate);         
-            //Tell user
-            navigator.notification.alert('Reminder is downloaded!');
+    function downloadReminderPrompt() {
+        navigator.notification.confirm('Do you want to download the reminder?',
+       downloadReminder, 'Access Calendar', 'Yes, No');
+    }
+
+    function downloadReminder(buttonIndex) {
+        if (buttonIndex === 1) {
+            try {
+                window.plugins.calendar.createEvent(title, location, "", startDate, endDate);         
+                //Tell user
+                navigator.notification.alert('Reminder is downloaded!');
+            }
+            catch (err) {
+                navigator.notification.alert('An Error occurred. Unable to download reminder for this device.');
+            }
         }
-        catch (err) {
-            navigator.notification.alert('An Error occurred. Unable to download reminder for this device.');
-        }
+       
     }
 })();
