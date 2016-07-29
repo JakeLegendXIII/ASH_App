@@ -1,0 +1,36 @@
+{
+  "name": "bootstrap-modal-collapse-transition",
+  "main": [
+    "modal.js",
+    "collapse.js",
+    "transition.js"
+  ],
+  "version": "0.0.4",
+  "author": {
+    "name": "climboid - Oscar Villarreal",
+    "email": "oscarvillarreal14@gmail.com"
+  },
+  "description": "A bower component that contains bootstrap js modal plugin, collapse plugin and transition plugin",
+  "keywords": [
+    "bootstrap",
+    "modal",
+    "collapse",
+    "transition"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "dependencies": {},
+  "homepage": "https://github.com/climboid/bootstrap-modal-collapse-transition",
+  "_release": "0.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.4",
+    "commit": "9acbcb710c828085c3932f7f7b2dde17e4978801"
+  },
+  "_source": "git://github.com/climboid/bootstrap-modal-collapse-transition.git",
+  "_target": "~0.0.4",
+  "_originalSource": "bootstrap-modal-collapse-transition"
+}

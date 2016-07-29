@@ -1,20 +1,28 @@
 ﻿<div>
-    <!--ng-controller="indexController as vm"-->
     <i class="fa fa-home"></i> Home
-    <h3>Upcoming Events:</h3>
-    <div class="jumbotron">
-        <!--<div ng-repeat="x in vm">-->
-        <a href="http://andrewsspiritofhope.org/" target="_blank" onclick="window.open('http://andrewsspiritofhope.org/',
+    <div ng-click="vm.refresh();" style="float:right;padding-right:10px;"><button class="btn btn-info"><i class="fa fa-refresh"></i></button></div>
+    <h3>Upcoming Events:</h3> 
+        <div ng-if="!vm.isLoaded">
+            <i class="fa fa-refresh fa-2x fa-spin"></i>
+            <p>Trying to establish connection...</p>
+        </div>
+        <div ng-if="vm.isLoaded">
+                <div ng-repeat="eve in vm.events.data">
+                    <div class="jumbotron">
+                        <a href="http://andrewsspiritofhope.org/" target="_blank" onclick="window.open('http://andrewsspiritofhope.org/',
                                             '_blank', 'location=yes'); return false;">
-            <button class="btn btn-warning btn-lg">Register</button>
-        </a>
-        <h4>Date:  {{ vm.date }}</h4>
-        <h4> {{ vm.name }}</h4><br />
-        {{ vm.location }}<br />
-        {{ vm.address }}, {{ vm.city }} {{ vm.state }} {{ vm.zipCode }}
-        <br />
-        <button id="getdirections" type="button" class="btn btn-success"> Get Directions</button>
-        <button id="downloadreminder" type="button" class="btn btn-primary"> Download Reminder </button>
-        <!--</div>-->
-    </div>
+                            <button class="btn btn-warning btn-lg">Register</button>
+                        </a>
+                        <h4>Date:  {{ eve.Date | date }}</h4>
+                        <h5>Start Time: {{ eve.Time | date: "shortTime" }}</h5>
+                        <h5>End Time: {{ eve.EndTime | date: "shortTime" }}</h5>
+                        <h4> {{ eve.Name }}</h4><br />
+                        {{ eve.Location }}<br />
+                        {{ eve.Address }}, {{ eve.City }} {{ eve.State }} {{ eve.ZipCode }}
+                        <br />
+                        <button ng-click="vm.getDirections(eve);" type="button" class="btn btn-success"> Get Directions</button>
+                        <button ng-click="vm.downloadReminder(eve);" type="button" class="btn btn-primary"> Download Reminder </button>
+                    </div>
+                </div>
+        </div>
 </div>
