@@ -37,7 +37,14 @@
         vm.downloadReminder = function downloadReminderPrompt(event) {
             var title = 'ASH ' + event.Name;
             var location = event.Location;
-            console.log(title, location, '', event.Date, event.Time, event.EndTime);
+            var date = moment(event.Date).format('MM/DD/YYYY');
+            var st = moment(event.Time).format('HH:mm:ss');
+            var et = moment(event.EndTime).format('HH:mm:ss');
+            var sd = date + ' ' + st;
+            var ed = date + ' ' + et;
+            var startDate = new Date(sd);
+            var endDate = new Date(ed);
+            console.log(title, location, '', date, st, et, startDate, endDate);
             navigator.notification.confirm('Do you want to download the reminder?',
            downloadReminder, 'Access Calendar', 'Yes, No');
 
@@ -50,6 +57,7 @@
                     }
                     catch (err) {
                         navigator.notification.alert('An Error occurred. Unable to download reminder for this device.');
+                        console.log(err.message);
                     }
                 }
             }

@@ -25,7 +25,7 @@
                 });
 
             function getEventsComplete(data, status, headers, config) {
-                //console.log(data);
+                console.log(data);
                 //defer.resolve(data);
                 //return defer.promise;
                 return data;

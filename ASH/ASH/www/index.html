@@ -5,7 +5,7 @@
         Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
     -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> 
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://events.andrewsspiritofhope.org:8080 http://192.168.174.143:8080/ 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> 
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -61,8 +61,9 @@
         <script type="text/javascript" src="cordova.js"></script>
         <!-- Depedencies -->
         <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
-        <script src="lib/angular/angular.js"></script>
-        <!--<script type="text/javascript" src="lib/angular/angular.min.js"></script>-->
+        <!--<script src="lib/angular/angular.js"></script>-->
+        <script src="lib/moment/min/moment.min.js"></script>
+        <script type="text/javascript" src="lib/angular/angular.min.js"></script>
         <script type="text/javascript" src="lib/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="lib/angular-animate/angular-animate.min.js"></script>
         <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
