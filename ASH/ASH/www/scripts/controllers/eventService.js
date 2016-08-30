@@ -17,7 +17,8 @@
         return service;
 
         function getEvents() {
-            return $http.get('WhereDatDataIs')
+            return $http.get('http://192.168.174.143:8080/api/events')
+            //return $http.get('http://events.andrewsspiritofhope.org:8080/api/events')
                 .then(getEventsComplete)
                 .catch(function (message) {
                     console.log('Failed');
